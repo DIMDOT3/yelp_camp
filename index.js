@@ -33,9 +33,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(flash());
 // Connect to DB
-console.log(process.env.DATABASEURL)
-mongoose.connect(process.env.DATABASEURL);
-// mongoose.connect("mongodb://admin:admin@ds155934.mlab.com:55934/yelp_camp")
+var url = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+mongoose.connect(url);
 // Configure passport for authentication
 app.use(require('express-session')({
     secret: 'Once again Rusty wins!',
