@@ -23,7 +23,7 @@ var campgroundRoutes = require('./routes/campgrounds'),
 // ==========================================
 // CONFIG
 // ==========================================
-
+app.locals.moment = require('moment');
 app.set('view engine', 'ejs');
 // Configure app to serve the public directory
 app.use(express.static(__dirname + "/public"));
