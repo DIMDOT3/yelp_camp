@@ -1,3 +1,7 @@
+img {
+    width: 100%;
+}
+
 .thumbnail img {
     width: 100%;
 }
@@ -8,13 +12,4 @@
 
 .delete-form {
     display: inline;
-}
-
-#map {
-    height: 400px;
-    width: 100%;
-}
-
-#campground-show-left {
-    min-height: 600px;
 }

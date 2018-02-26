@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="row">
+    <div class="col-md-4">
+        <h1><%= user.firstName.toUpperCase() %> <%= user.lastName.toUpperCase() %></h1>
+        <div class="thumbnail">
+            <img src="<%= user.avatar %>" alt="user profile image">
+            <div class="caption"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem suscipit
+            velit tempora maiores voluptates blanditiis soluta consequatur quasi magni 
+            explicabo, maxime sed ab, odit. Optio officiis recusandae cupiditate consequuntur animi.
+        </p>
+    </div>
+    <div class="col-md-8">
+        <h3><%= user.username %>'s Campground Posts</h3>
+        <ul class="list-group">
+            <% campgrounds.forEach(function(campground){ %>
+                <li class="list-group-item">
+                    <a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a>
+                    <img class="thumbnail" src="<%= campground.image %>">
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>

@@ -15,7 +15,7 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
                // does user own campground?
                //foundComment.author.id returns an object | req.user.id returns a string
                 // so use equal() method to check for equality
-               if(foundCampground.author.id.equals(req.user._id)){
+               if(foundCampground.author.id.equals(req.user._id) || req.user.isAdmin){
                     next();
                } else {
                    req.flash('error', "You don't have permission to do that.");
@@ -39,7 +39,7 @@ middlewareObj.checkCommentOwnership = function(req, res, next){
                // does user own comment?
                 //foundComment.author.id returns an object | req.user.id returns a string
                 // so use equal() method to check for equality
-               if(foundComment.author.id.equals(req.user._id)){
+               if(foundComment.author.id.equals(req.user._id) || req.user.isAdmin){
                     next();
                } else {
                    req.flash('error', "You don't have permission to do that!");
